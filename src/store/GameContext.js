@@ -14,6 +14,7 @@ export const GameContextProvider = ({children}) => {
 
 
     useEffect(() => {
+        console.log('newGame', size)
         setGame(new Game({size}));
 
     }, [size]);
@@ -38,6 +39,8 @@ export const GameContextProvider = ({children}) => {
 
     return (
         <GameContext.Provider value={{
+            size,
+            setSize,
             game,
             board,
             start,

@@ -4,10 +4,13 @@ import {IoMdTime} from "react-icons/io";
 import ControlButton from "./ControlButton";
 import {useContext, useEffect, useState} from "react";
 import {GameContext} from "../../store/GameContext";
+import {useNavigate} from "react-router-dom";
+import {FaFlagCheckered} from "react-icons/fa";
 
 const GameControls = () => {
     const {game, start} = useContext(GameContext);
     const [clock, setClock] = useState('00:00');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getClock = () => {
@@ -30,16 +33,19 @@ const GameControls = () => {
             className="flex flex-col justify-between gap-2"
         >
             <div
-                className="flex flex-row sm:flex-col gap-4 justify-between"
+                className="flex flex-row md:flex-col gap-4 justify-between"
             >
                 <GameInfo label="Moves" icon={<TbClick />}>{game?.moves?.length ?? 0}</GameInfo>
                 <GameInfo label="time" icon={<IoMdTime />}>{clock}</GameInfo>
+                {game?.gameWon && (
+                    <GameInfo icon={<FaFlagCheckered />}>Congratulations</GameInfo>
+                )}
             </div>
             <div
-                className="flex flex-row sm:flex-col gap-2"
+                className="flex flex-row md:flex-col gap-2"
             >
-                <ControlButton onClick={start}>Start</ControlButton>
-                <ControlButton>Change Difficulty</ControlButton>
+                <ControlButton onClick={start}>Start Game</ControlButton>
+                <ControlButton onClick={() => navigate('/select-size')}>Select Size</ControlButton>
             </div>
         </div>
     );

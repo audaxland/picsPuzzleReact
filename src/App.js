@@ -1,12 +1,18 @@
 import GameScreen from "./screens/GameScreen";
+import {Navigate, Route, Routes} from "react-router-dom";
+import SelectSize from "./screens/SelectSize";
+import FoundationLayout from "./components/layout/FoundationLayout";
 
 function App() {
   return (
-    <div
-        className="bg-gradient-to-br from-amber-200 to-cyan-700 min-h-screen flex items-center justify-center"
-    >
-        <GameScreen />
-    </div>
+    <FoundationLayout>
+        <Routes>
+            <Route path="/game" element={<GameScreen />}/>
+            <Route path="/select-size" element={<SelectSize />} />
+            <Route path="*" element={<Navigate to="/game" />} />
+        </Routes>
+
+    </FoundationLayout>
   );
 }
 
