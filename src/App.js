@@ -12,9 +12,9 @@ function App() {
   return (
     <FoundationLayout>
         <Routes>
-            <Route path="/game" element={<GameScreen />}/>
+            <Route path="/" element={<GameScreen />}/>
             <Route path="/select-size" element={<SelectSize />} />
-            <Route path="*" element={<Navigate to="/game" />} />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 
     </FoundationLayout>

@@ -125,7 +125,7 @@ const SelectSize = () => {
 
             <div className="flex flex-wrap justify-center items-center">
                 <div className="flex justify-center items-center">
-                    <ControlButton onClick={() => navigate('/game')}>Go To Game</ControlButton>
+                    <ControlButton onClick={() => navigate('/')}>Go To Game</ControlButton>
                 </div>
             </div>
         </>

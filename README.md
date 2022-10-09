@@ -7,9 +7,8 @@ PicsPuzzle is a puzzle game where the player has to move puzzle pieces to reveal
 ## Play Now
 
 Want to play the game ?...   
-A live deployment of this game is available at  
-
-<a href="https://pics-puzzle.audaxland.net" target="_blank">pics-puzzle.audaxland.net</a>
+A live deployment of this game is available at   
+**https://pics-puzzle.audaxland.net**
 
 ## Build with React & TailwindCss
 
