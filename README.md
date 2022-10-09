@@ -2,7 +2,7 @@
 
 PicsPuzzle is a puzzle game where the player has to move puzzle pieces to reveal a picture.
 
-![Screenshot of the PicPuzzle Game](puzzleScreenshot.jpg)
+![Screenshot of the PicPuzzle Game](puzzleScreenshot.jpg){:target="_blank"}
 
 ## Play Now
 
@@ -13,20 +13,20 @@ A live deployment of this game is available at
 ## Build with React & TailwindCss
 
 This game is build using
-[React](https://reactjs.org/) 
-with [create-react-app](https://create-react-app.dev/) 
-and [TailwindCss](https://tailwindcss.com/), 
+[React](https://reactjs.org/){:target="_blank"} 
+with [create-react-app](https://create-react-app.dev/){:target="_blank"} 
+and [TailwindCss](https://tailwindcss.com/){:target="_blank"}, 
 and also uses 
-[react-router-dom](https://reactrouter.com/en/main) 
-and [react-icons](https://react-icons.github.io/react-icons/)  
+[react-router-dom](https://reactrouter.com/en/main){:target="_blank"} 
+and [react-icons](https://react-icons.github.io/react-icons/){:target="_blank"}  
   
-The Pictures are mostly taken from [Unsplash](https://unsplash.com/)
+The Pictures are mostly taken from [Unsplash](https://unsplash.com/){:target="_blank"}
 
 The Icons, though imported via react-icons originate from: 
-[Ionicons](https://ionic.io/ionicons),
-[Bootstrap](https://github.com/twbs/icons),
-[Tabler Icons](https://github.com/tabler/tabler-icons) and 
-[Font Awesome](https://fontawesome.com/)
+[Ionicons](https://ionic.io/ionicons){:target="_blank"},
+[Bootstrap](https://github.com/twbs/icons){:target="_blank"},
+[Tabler Icons](https://github.com/tabler/tabler-icons){:target="_blank"} and 
+[Font Awesome](https://fontawesome.com/){:target="_blank"}
 
 
 ## Run the game locally
