@@ -35,8 +35,8 @@ const GameControls = () => {
             </div>
             <div className="flex flex-row md:flex-col gap-2">
                 {(!game?.startTime) && [
-                    <ControlButton onClick={start}>Start Game</ControlButton>,
-                    <ControlButton onClick={pickNewImage}>Change Image</ControlButton>
+                    <ControlButton onClick={start} key="startGame">Start Game</ControlButton>,
+                    <ControlButton onClick={pickNewImage} key="changeImage">Change Image</ControlButton>
                 ]}
                 {(!!game?.startTime) && (!game?.gameWon) && (
                     <ControlButton onClick={togglePause}>

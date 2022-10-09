@@ -89,7 +89,7 @@ class Game
         this.puzzle = this.puzzle.filter(({x, y}) => !((x === this.slot.x) && (y === this.slot.y)))
 
         // shuffle the pieces of the game so that there is something to solve
-        this.shuffle(100000);
+        this.shuffle(1000000);
 
         // initialize the start time of the game, in timestamp milliseconds
         this.startTime = (new Date()).getTime();
@@ -133,8 +133,9 @@ class Game
     play (x, y) {
         if (this.move(x, y)) {
             this.moves.push({x, y});
-            this.checkIfWon ();
+            return this.checkIfWon ();
         }
+        return false;
     }
 
     /**
@@ -201,7 +202,12 @@ class Game
             // set end time in timestamp milliseconds
             this.endTime = (new Date()).getTime();
             // add back to the puzzle the piece that was removed when the game started
-            this.puzzle.push(new PuzzlePiece({...this.removedPiece}));
+            const lastPiece = new PuzzlePiece({...this.removedPiece});
+            // move the piece out of the board to allow a transition in
+            lastPiece.moveTo(-1,-1);
+            this.puzzle.push(lastPiece);
+            // move the piece back to it's correct position
+            setTimeout(() => lastPiece.moveTo(lastPiece.imgX, lastPiece.imgY), 100)
             // remove the slot and removed piece as no piece is now missing
             this.slot = null;
             this.removedPiece = null;

@@ -39,7 +39,8 @@ const GameClock = () => {
         }
         // if the game is not being played, only update the clock once
         if ((!game) || (!game?.startTime) || game.pauseTime || game.gameWon) {
-            return updateClock();
+            updateClock();
+            return;
         }
 
         // while the game is played, update the clock each second

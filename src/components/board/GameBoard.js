@@ -57,7 +57,7 @@ const GameBoard = () => {
             className="flex items-center justify-center p-1 bg-[#ccc5] rounded"
         >
             <div
-                className="relative bg-[#ddd6]"
+                className="relative bg-[#ddd6] overflow-hidden"
                 style={{
                     width: size.x * cellSize,
                     height: size.y * cellSize,

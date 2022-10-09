@@ -40,7 +40,7 @@ export const GameContext = createContext(/** @type {GameContextType} */ {
 export const GameContextProvider = ({children}) => {
     const [size, setSize] = useState(
         /** @type {{x: number, y: number}} - Number of columns and rows of the puzzle*/
-        {x: 4, y: 0}
+        {x: 4, y: 5}
     );
 
     const [imagePicked, setImagePicked] = useState(
@@ -66,7 +66,7 @@ export const GameContextProvider = ({children}) => {
     // sets the dynamic path to the image used for the puzzle
     useEffect(() => {
         if (!imagePicked) return;
-        setPuzzleImage(require('../assets/images/' + imagePicked));
+        setPuzzleImage(require('../assets/images/' + imagePicked ));
     }, [imagePicked ]);
 
     // creates an instance of the game,
@@ -97,8 +97,12 @@ export const GameContextProvider = ({children}) => {
      */
     const play = useCallback((x, y) => {
         if (!game) return;
-        game.play(x, y);
+        const isWon = game.play(x, y);
         setBoard(game.getBoard());
+        // re-render the board with a delay to allow a css transition
+        if (isWon) {
+            setTimeout(() => setBoard(game.getBoard()), 300);
+        }
     }, [game]);
 
     /**

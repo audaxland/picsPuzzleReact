@@ -12,7 +12,14 @@ import {GameContext} from "../../store/GameContext";
  * @returns {JSX.Element|null}
  * @constructor
  */
-const BoardCell = ({x, y, imgX, imgY, canPlay = false, cellSize}) => {
+const BoardCell = ({
+    x,
+    y,
+    imgX,
+    imgY,
+    canPlay = false,
+    cellSize
+}) => {
     /**
      * @type {import('../../store/GameContext').GameContextType}
      */
@@ -31,7 +38,7 @@ const BoardCell = ({x, y, imgX, imgY, canPlay = false, cellSize}) => {
             }}
             className={"z-10 absolute overflow-hidden transition-all duration-300 ease-in-out " +
                 " border border-[#fff3] " +
-            (canPlay ? " cursor-pointer hover:opacity-80 hover:border-indigo-700" : "")}
+                (canPlay ? " cursor-pointer hover:opacity-80 hover:border-indigo-700" : "")}
             onClick={canPlay ? (() => play(x,y)) : undefined}
         >
             <div
