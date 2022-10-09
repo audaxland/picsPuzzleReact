@@ -1,3 +1,14 @@
+/**
+ * Renders a button used to select the size on orientation of the puzzle,
+ * Buttons include an icon a name and a value
+ * @param {JSX.Element} icon - icon to render
+ * @param {string} text - name of the option
+ * @param {function} onClick - action to do onClick
+ * @param {boolean} active - true if the option is to be shown as selected, false otherwise
+ * @param {string|JSX.Element|JSX.Element[]} children - value of the option
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const SelectionIconButton = ({icon, text, onClick, active, children}) => {
     return (
         <button
@@ -10,25 +21,16 @@ const SelectionIconButton = ({icon, text, onClick, active, children}) => {
                 className="flex flex-col items-center bg-[#ddd7] hover:bg-transparent rounded-xl p-1 md:p-2
                 hover:text-white active:bg-[#ddd3] gap-1"
             >
-
-                <div
-                    className="flex flex-col items-center "
-                >
-                    <span
-                        className="text-xs"
-                    >
+                <div className="flex flex-col items-center ">
+                    <span className="text-xs">
                         {text}
                     </span>
-                        <span
-                            className="text-md md:text-lg font-bold"
-                        >
+                    <span className="text-md md:text-lg font-bold">
                         {children}
                     </span>
                 </div>
 
-                <span
-                    className="text-2xl sm:text-3xl md:text-5xl"
-                >
+                <span className="text-2xl sm:text-3xl md:text-5xl">
                     {icon}
                 </span>
             </div>

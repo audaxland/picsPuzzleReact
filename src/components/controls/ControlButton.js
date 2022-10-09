@@ -1,3 +1,10 @@
+/**
+ * Render a rounded button with light blue/indigo background
+ * @param {string|JSX.Element} children - the content to render inside the button
+ * @param {object} rest - other attributes to pass on to the <button /> component (mostly the onClick attribute)
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const ControlButton = ({children, ...rest}) => {
     return (
         <button

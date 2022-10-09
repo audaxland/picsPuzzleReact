@@ -1,9 +1,25 @@
-import puzzleImage from '../../assets/images/tiger.jpg';
 import {useContext} from "react";
 import {GameContext} from "../../store/GameContext";
 
+/**
+ * Individual square puzzle piece
+ * @param {number} x - x current position of the piece ( number of the column range 0..size.x-1)
+ * @param {number} y - y current position of the piece (number of row range 0..size.y-1)
+ * @param {number} imgX - x position of the piece once puzzle solved (range 0..size.x-1)
+ * @param {number} imgY - y position og the piece once puzzle solved (range 0..size.y-1
+ * @param {boolean} canPlay - true if the piece can be moved
+ * @param {number} cellSize - size in pixed of the piece square
+ * @returns {JSX.Element|null}
+ * @constructor
+ */
 const BoardCell = ({x, y, imgX, imgY, canPlay = false, cellSize}) => {
-    const {play, size} = useContext(GameContext);
+    /**
+     * @type {import('../../store/GameContext').GameContextType}
+     */
+    const {play, size, puzzleImage} = useContext(GameContext);
+
+    // the puzzle image is not defined upon first render
+    if (!puzzleImage) return null;
 
     return (
         <div
@@ -13,7 +29,7 @@ const BoardCell = ({x, y, imgX, imgY, canPlay = false, cellSize}) => {
                 height: cellSize,
                 width: cellSize,
             }}
-            className={"absolute overflow-hidden transition-all duration-300 ease-in-out " +
+            className={"z-10 absolute overflow-hidden transition-all duration-300 ease-in-out " +
                 " border border-[#fff3] " +
             (canPlay ? " cursor-pointer hover:opacity-80 hover:border-indigo-700" : "")}
             onClick={canPlay ? (() => play(x,y)) : undefined}

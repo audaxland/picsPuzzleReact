@@ -1,50 +1,51 @@
 import GameInfo from "./GameInfo";
 import {TbClick} from "react-icons/tb";
-import {IoMdTime} from "react-icons/io";
 import ControlButton from "./ControlButton";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {GameContext} from "../../store/GameContext";
 import {useNavigate} from "react-router-dom";
 import {FaFlagCheckered} from "react-icons/fa";
+import GameClock from "./GameClock";
 
+/**
+ * Renders the game controls, either on the right or on the bottom of the puzzle board
+ * this includes the game information (moves/clock) and the action buttons
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const GameControls = () => {
-    const {game, start} = useContext(GameContext);
-    const [clock, setClock] = useState('00:00');
+    /**
+     * @type {import('../../store/GameContext').GameContextType}
+     */
+    const {game, start, togglePause, pickNewImage} = useContext(GameContext);
+
+    /**
+     * @type {NavigateFunction} navigate instance to go to the "change size" screen
+     */
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const getClock = () => {
-            if ((!game) || (!game.startTime)) {
-                return setClock('00:00');
-            }
-            const elapsed = game.getElapsedTime();
-            setClock(
-                Math.floor(elapsed/60).toString().padStart(2, '0')
-                + ':' +
-                (elapsed % 60).toString().padStart(2, '0')
-            );
-            return setTimeout(getClock, 1000);
-        };
-        let timer = getClock();
-        return () => {timer && clearTimeout(timer)};
-    }, [game, game?.startTime]);
     return (
-        <div
-            className="flex flex-col justify-between gap-2"
-        >
-            <div
-                className="flex flex-row md:flex-col gap-4 justify-between"
-            >
+        <div className="flex flex-col justify-between gap-2">
+            <div className="flex flex-row md:flex-col gap-4 justify-between">
                 <GameInfo label="Moves" icon={<TbClick />}>{game?.moves?.length ?? 0}</GameInfo>
-                <GameInfo label="time" icon={<IoMdTime />}>{clock}</GameInfo>
+                <GameClock />
                 {game?.gameWon && (
                     <GameInfo icon={<FaFlagCheckered />}>Congratulations</GameInfo>
                 )}
             </div>
-            <div
-                className="flex flex-row md:flex-col gap-2"
-            >
-                <ControlButton onClick={start}>Start Game</ControlButton>
+            <div className="flex flex-row md:flex-col gap-2">
+                {(!game?.startTime) && [
+                    <ControlButton onClick={start}>Start Game</ControlButton>,
+                    <ControlButton onClick={pickNewImage}>Change Image</ControlButton>
+                ]}
+                {(!!game?.startTime) && (!game?.gameWon) && (
+                    <ControlButton onClick={togglePause}>
+                        {game.pauseTime ? 'Resume' : 'Pause'}
+                    </ControlButton>
+                )}
+                {(!!game?.startTime) && (
+                    <ControlButton onClick={pickNewImage}>New Game</ControlButton>
+                )}
                 <ControlButton onClick={() => navigate('/select-size')}>Select Size</ControlButton>
             </div>
         </div>
