@@ -13,20 +13,20 @@ A live deployment of this game is available at
 ## Build with React & TailwindCss
 
 This game is build using
-[React](https://reactjs.org/){:target="_blank"} 
-with [create-react-app](https://create-react-app.dev/){:target="_blank"} 
-and [TailwindCss](https://tailwindcss.com/){:target="_blank"}, 
+[React](https://reactjs.org/)
+with [create-react-app](https://create-react-app.dev/) 
+and [TailwindCss](https://tailwindcss.com/), 
 and also uses 
-[react-router-dom](https://reactrouter.com/en/main){:target="_blank"} 
-and [react-icons](https://react-icons.github.io/react-icons/){:target="_blank"}  
+[react-router-dom](https://reactrouter.com/en/main) 
+and [react-icons](https://react-icons.github.io/react-icons/)  
   
-The Pictures are mostly taken from [Unsplash](https://unsplash.com/){:target="_blank"}
+The Pictures are mostly taken from [Unsplash](https://unsplash.com/)
 
 The Icons, though imported via react-icons originate from: 
-[Ionicons](https://ionic.io/ionicons){:target="_blank"},
-[Bootstrap](https://github.com/twbs/icons){:target="_blank"},
-[Tabler Icons](https://github.com/tabler/tabler-icons){:target="_blank"} and 
-[Font Awesome](https://fontawesome.com/){:target="_blank"}
+[Ionicons](https://ionic.io/ionicons),
+[Bootstrap](https://github.com/twbs/icons),
+[Tabler Icons](https://github.com/tabler/tabler-icons) and 
+[Font Awesome](https://fontawesome.com/)
 
 
 ## Run the game locally
