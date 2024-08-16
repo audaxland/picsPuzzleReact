@@ -7,7 +7,7 @@
  */
 const FoundationLayout = ({children}) => {
     return (
-        <div className="bg-[url('./assets/images/background.jpg')] bg-cover bg-center">
+        <div className="bg-[url('./assets/images/background1.jpg')] bg-cover bg-center">
             <div
                 className="bg-gradient-to-br from-[#fd2a] to-[#03da] min-h-screen flex items-center justify-center"
             >
